@@ -83,66 +83,66 @@ end
 
 
 ## API Reference
-* Core Methods
-`Voronoi:newDiagram()`
-Creates and returns a new Voronoi diagram object.
-`diagram:setBoundingPolygon(polygon)`
-Sets a custom bounding polygon for the diagram.
-Parameters:
-	`polygon`: A table of vertices `{x1, y1, x2, y2, ..., xn, yn}`.
-`diagram:addSite(x, y)`
-* Adds a single site to the diagram.
+## Core Methods
+	`Voronoi:newDiagram()`
+	Creates and returns a new Voronoi diagram object.
+	`diagram:setBoundingPolygon(polygon)`
+	Sets a custom bounding polygon for the diagram.
 	Parameters:
-`x`, `y`: Coordinates of the site.
-`diagram:addSites(sites)`
-Adds multiple sites to the diagram.
-	Parameters:
-`sites`: A table of sites in the format `{{x = x1, y = y1}, {x = x2, y = y2}, ...}`.
-`diagram:removeSiteByIndex(index)`
-Removes a site by its index.
-	Parameters:
-`index`: The index of the site to remove.
-`diagram:removeLastSite()`
-Removes the last site added to the diagram.
-`diagram:update()`
-Regenerates the Voronoi cells based on the current sites and bounding polygon.
+		`polygon`: A table of vertices `{x1, y1, x2, y2, ..., xn, yn}`.
+	`diagram:addSite(x, y)`
+	* Adds a single site to the diagram.
+		Parameters:
+	`x`, `y`: Coordinates of the site.
+	`diagram:addSites(sites)`
+	Adds multiple sites to the diagram.
+		Parameters:
+	`sites`: A table of sites in the format `{{x = x1, y = y1}, {x = x2, y = y2}, ...}`.
+	`diagram:removeSiteByIndex(index)`
+	Removes a site by its index.
+		Parameters:
+	`index`: The index of the site to remove.
+	`diagram:removeLastSite()`
+	Removes the last site added to the diagram.
+	`diagram:update()`
+	Regenerates the Voronoi cells based on the current sites and bounding polygon.
 
 ## Drawing Methods (Love2D)
 
-`diagram:drawBoundingPolygon(mode)`
-Draws the bounding polygon.
-	Parameters:
-	`mode`: "fill" or "line" (default: "line").
-`diagram:drawSites(mode, radius)`
-Draws all sites in the diagram.
-	Parameters:
-	`mode`: "fill" or "line" (default: "fill").
-	`radius`: Radius of the site circles (default: 5).
-`diagram:drawCells(mode)`
-Draws all Voronoi cells.
-	Parameters:
-	`mode`: "fill" or "line" (default: "line").
-`diagram:drawCell(index, mode)`
-Draws a single Voronoi cell by index.
-	Parameters:
-	`index`: The index of the cell to draw.
-	`mode`: "fill" or "line" (default: "fill").
-`diagram:drawSite(index, mode, radius)`
-Draws a single site by index.
-	Parameters:
-	`index`: The index of the site to draw.
-	`mode`: "fill" or "line" (default: "fill").
-	`radius`: Radius of the site circle (default: 5).
+	`diagram:drawBoundingPolygon(mode)`
+	Draws the bounding polygon.
+		Parameters:
+		`mode`: "fill" or "line" (default: "line").
+	`diagram:drawSites(mode, radius)`
+	Draws all sites in the diagram.
+		Parameters:
+		`mode`: "fill" or "line" (default: "fill").
+		`radius`: Radius of the site circles (default: 5).
+	`diagram:drawCells(mode)`
+	Draws all Voronoi cells.
+		Parameters:
+		`mode`: "fill" or "line" (default: "line").
+	`diagram:drawCell(index, mode)`
+	Draws a single Voronoi cell by index.
+		Parameters:
+		`index`: The index of the cell to draw.
+		`mode`: "fill" or "line" (default: "fill").
+	`diagram:drawSite(index, mode, radius)`
+	Draws a single site by index.
+		Parameters:
+		`index`: The index of the site to draw.
+		`mode`: "fill" or "line" (default: "fill").
+		`radius`: Radius of the site circle (default: 5).
 
 ## Utility Methods
 
-`diagram:getCell(mx, my)`
-Returns the index and polygon of the Voronoi cell containing the given point.
-	Parameters:
-	mx, my: Coordinates of the point.
-	Returns:
-	`index`: Index of the cell.
-	`cell`: Polygon of the cell.
+	`diagram:getCell(mx, my)`
+	Returns the index and polygon of the Voronoi cell containing the given point.
+		Parameters:
+		mx, my: Coordinates of the point.
+		Returns:
+		`index`: Index of the cell.
+		`cell`: Polygon of the cell.
 
 ## Example
 
