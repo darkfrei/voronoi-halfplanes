@@ -2,7 +2,7 @@
 Simple Voronoi halfplanes solution for LÖVE / Lua
 
 
-# Voronoi Diagram Library for Love2D
+# Voronoi Diagram Library for Lua / Love2D
 
 This library provides a simple and flexible way to generate **Voronoi diagrams** in [Love2D](https://love2d.org/), a lightweight framework for making 2D games and visualizations. Using this library, you can create interactive Voronoi diagrams, add/remove sites dynamically, and customize the bounding polygon.
 
