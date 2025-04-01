@@ -197,6 +197,7 @@ Returns:
 
 ## Example
 
+![example voronoi halfplanes](https://github.com/darkfrei/voronoi-halfplanes/blob/main/voronoi-halfplanes-01.png)
 
 This code demonstrates how to create and interact with a Voronoi diagram using the library. It includes adding and removing sites, modifying the bounding polygon, and highlighting cells under the mouse cursor.
 
