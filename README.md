@@ -35,7 +35,7 @@ A **Voronoi diagram** partitions a plane into regions based on the distance to a
 4. Create a new Voronoi diagram object and start using the API.
 
 ## Usage
-Basic Workflow
+- **Basic Workflow** 
 1. Create a New Diagram:
 ```lua
 local diagram = Voronoi:newDiagram()
