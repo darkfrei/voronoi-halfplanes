@@ -32,9 +32,121 @@ A **Voronoi diagram** partitions a plane into regions based on the distance to a
    ```lua
    local Voronoi = require("Voronoi")
    ```
+4. Create a new Voronoi diagram object and start using the API.
 
+## Usage
+Basic Workflow
+1. Create a New Diagram:
+```lua
+local diagram = Voronoi:newDiagram()
+```
+
+2. Set a Custom Bounding Polygon (Optional):
+```lua
+local customPolygon = {100, 100, 700, 100, 700, 500, 100, 500}
+diagram:setBoundingPolygon(customPolygon)
+```
+3. Add Sites:
+```lua
+diagram:addSite(200, 200)
+diagram:addSite(400, 300)
+diagram:addSites({{x = 600, y = 250}, {x = 300, y = 400}})
+```
+4. Update Cells:
+```lua
+diagram:update()
+```
+5. Draw the Diagram:
+```lua
+function love.draw()
+    -- Draw bounding polygon
+    love.graphics.setColor(1, 1, 1, 0.2)
+    diagram:drawBoundingPolygon('fill')
+    love.graphics.setColor(1, 1, 1)
+    diagram:drawBoundingPolygon('line')
+
+    -- Draw Voronoi cells
+    love.graphics.setColor(0, 1, 0, 0.3)
+    diagram:drawCells('fill')
+    love.graphics.setColor(0, 1, 0)
+    diagram:drawCells('line')
+
+    -- Draw sites
+    love.graphics.setColor(1, 0, 0)
+    diagram:drawSites('fill', 5)
+end
+```
+6. Interactivity:
+* Use `diagram:getCell(mx, my)` to detect which cell the mouse is over.
+* Add or remove sites dynamically using mouse input.
+
+
+
+## API Reference
+* Core Methods
+`Voronoi:newDiagram()`
+Creates and returns a new Voronoi diagram object.
+`diagram:setBoundingPolygon(polygon)`
+Sets a custom bounding polygon for the diagram.
+Parameters:
+	`polygon`: A table of vertices `{x1, y1, x2, y2, ..., xn, yn}`.
+`diagram:addSite(x, y)`
+* Adds a single site to the diagram.
+	Parameters:
+`x`, `y`: Coordinates of the site.
+`diagram:addSites(sites)`
+Adds multiple sites to the diagram.
+	Parameters:
+`sites`: A table of sites in the format `{{x = x1, y = y1}, {x = x2, y = y2}, ...}`.
+`diagram:removeSiteByIndex(index)`
+Removes a site by its index.
+	Parameters:
+`index`: The index of the site to remove.
+`diagram:removeLastSite()`
+Removes the last site added to the diagram.
+`diagram:update()`
+Regenerates the Voronoi cells based on the current sites and bounding polygon.
+
+## Drawing Methods (Love2D)
+
+`diagram:drawBoundingPolygon(mode)`
+Draws the bounding polygon.
+	Parameters:
+	`mode`: "fill" or "line" (default: "line").
+`diagram:drawSites(mode, radius)`
+Draws all sites in the diagram.
+	Parameters:
+	`mode`: "fill" or "line" (default: "fill").
+	`radius`: Radius of the site circles (default: 5).
+`diagram:drawCells(mode)`
+Draws all Voronoi cells.
+	Parameters:
+	`mode`: "fill" or "line" (default: "line").
+`diagram:drawCell(index, mode)`
+Draws a single Voronoi cell by index.
+	Parameters:
+	`index`: The index of the cell to draw.
+	`mode`: "fill" or "line" (default: "fill").
+`diagram:drawSite(index, mode, radius)`
+Draws a single site by index.
+	Parameters:
+	`index`: The index of the site to draw.
+	`mode`: "fill" or "line" (default: "fill").
+	`radius`: Radius of the site circle (default: 5).
+
+## Utility Methods
+
+`diagram:getCell(mx, my)`
+Returns the index and polygon of the Voronoi cell containing the given point.
+	Parameters:
+	mx, my: Coordinates of the point.
+	Returns:
+	`index`: Index of the cell.
+	`cell`: Polygon of the cell.
 
 ## Example
+
+
 This code demonstrates how to create and interact with a Voronoi diagram using the library. It includes adding and removing sites, modifying the bounding polygon, and highlighting cells under the mouse cursor.
 
 ```lua
