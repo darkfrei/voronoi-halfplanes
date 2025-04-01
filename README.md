@@ -12,6 +12,9 @@ This library provides a simple and flexible way to generate **Voronoi diagrams**
 
 A **Voronoi diagram** partitions a plane into regions based on the distance to a set of points (called "sites"). Each region corresponds to one site and contains all points closer to that site than to any other. Voronoi diagrams are widely used in computational geometry, game development, procedural generation, and data visualization.
 
+![animation voronoi halfplanes](https://github.com/darkfrei/voronoi-halfplanes/blob/main/Animation (114).gif)
+
+
 ---
 
 ## Features
@@ -302,3 +305,5 @@ function love.draw()
 	end
 end
 ```
+
+
