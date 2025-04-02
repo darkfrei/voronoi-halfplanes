@@ -17,6 +17,75 @@ A **Voronoi diagram** partitions a plane into regions based on the distance to a
 
 ---
 
+## Voronoi Diagram Structure
+
+1. Voronoi Diagram
+
+- Fields:
+  - `boundingPolygon`: The polygon defining the boundary of the diagram (default is a rectangle with vertices: 50, 50, 750, 50, 750, 550, 50, 550).
+  - `sites`: A list of all sites (points) in the diagram.
+
+  
+
+  - `cells`: A list of Voronoi cells, each corresponding to a site.
+
+  - `edges`: A list of all edges in the diagram.
+
+  - `vertices`: A list of all vertices (intersection points of edges) in the diagram.
+
+
+2. Site
+
+Represents a single point in the Voronoi diagram.
+
+- Fields:
+
+  - `x`, `y`: Coordinates of the site.
+
+  - `valid`: A boolean indicating whether the site lies within the bounding polygon.
+
+  - `cell`: A reference to the Voronoi cell associated with this site.
+
+3. Cell
+   
+- Fields:
+
+  - `site`: A reference to the site associated with this cell.
+
+  - `polygon`: A list of coordinates defining the cell's boundary polygon.
+
+  - `vertices`: A list of vertices (corner points) of the cell.
+
+  - `edges`: A list of edges forming the boundary of the cell.
+
+  - `valid`: A boolean indicating whether the cell is valid (e.g., not clipped out by the bounding polygon).
+
+4. Vertex
+   
+Represents a vertex (intersection point) in the Voronoi diagram.
+
+- Fields:
+
+  - `x`, `y`: Coordinates of the vertex.
+
+  - `edges`: A list of edges connected to this vertex.
+
+  - `cells`: A list of cells that share this vertex.
+
+  - `id`: A unique identifier for the vertex.
+
+5. Edge
+
+Represents an edge (line segment) in the Voronoi diagram.
+
+- Fields:
+
+  - `v1`, `v2`: References to the two vertices that define the edge.
+
+  - `cells`: A list of cells that share this edge (usually one or two cells).
+
+---
+
 ## Features
 
 - **Dynamic Site Management**: Add or remove sites interactively.
